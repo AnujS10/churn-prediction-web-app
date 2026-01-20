@@ -24,5 +24,5 @@ pip install -r requirements.txt
 streamlit run app.py
 
 Author:
-pip install -r requirements.txt
-streamlit run app.py
+Anuj Sherekar
+GitHub: https://github.com/AnujS10
