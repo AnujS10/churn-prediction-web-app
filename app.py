@@ -2,21 +2,18 @@ import streamlit as st
 import joblib
 import numpy as np
 
-# Load trained model
 model = joblib.load("churn_model_deploy.pkl")
 
 st.title("Customer Churn Prediction App")
 
 st.write("Enter customer details to predict churn")
 
-# Input fields
 tenure = st.number_input("Tenure (Months)", min_value=0, max_value=100)
 monthly_charges = st.number_input("Monthly Charges", min_value=0.0)
 total_charges = st.number_input("Total Charges", min_value=0.0)
 
 contract = st.selectbox("Contract Type", ["Month-to-month", "One year", "Two year"])
 
-# Encode contract manually
 if contract == "Month-to-month":
     contract_val = 0
 elif contract == "One year":
@@ -24,7 +21,6 @@ elif contract == "One year":
 else:
     contract_val = 2
 
-# Prediction
 if st.button("Predict Churn"):
     
     input_data = np.array([[tenure, monthly_charges, total_charges, contract_val]])
